@@ -8,3 +8,6 @@ config:
 
 applications:
   - name: guestbook
+    tool:
+          helm:
+            releaseName: guestbook
