@@ -2,6 +2,7 @@ config:
   spec:
     destination:
       server: https://kubernetes.default.svc
+      namespace: argocd-demo
     source:
       repoURL: https://github.com/abrahamfsantoso/argocd-example-apps
       targetRevision: master
@@ -9,5 +10,5 @@ config:
 applications:
   - name: guestbook
     tool:
-          helm:
-            releaseName: guestbook
+      helm:
+        releaseName: guestbook
