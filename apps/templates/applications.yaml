@@ -19,6 +19,17 @@ spec:
     {{- with .tool }}
     {{- . | toYaml | nindent 4 }}
     {{- end }}
+
+  {{- if eq .name "guestbook" }}
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    name: guestbook-ui
+    namespace: guestbook
+    jsonPointers:
+    - /spec/replicas
+  {{- end }}
+
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
